@@ -1,0 +1,33 @@
+﻿@page
+@model IndexModel
+@using System.Globalization
+@{
+    ViewData["Title"] = "Home Page";
+    Random random = new Random();
+    int randomNumber = random.Next(1, 1000);
+    var culture = new CultureInfo("ru-RU");
+}
+<div class="text-center">
+    <h1 class="display-4">Добро пожаловать!</h1>
+    <p>Текущее время: @DateTime.Now.ToString("HH:mm")</p>
+    <hr class="my-4">
+</div>
+<div class="card">
+    <div class="card-header">
+        <h2>Детальная информация о дате:</h2>
+    </div>
+    <div class="card-body ms-3"
+        <p>Полная дата и время: <strong>@DateTime.Now.ToString("F", culture)</strong></p>
+        <p>Номер дня в году: <strong>@DateTime.Now.DayOfYear</strong></p>
+        <p>День недели: <strong>@DateTime.Now.ToString("dddd", culture).ToUpper()</strong></p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Случайное число:</h2>
+    </div>
+    <div class="card-body ms-3">
+    <p>@randomNumber</p>
+    </div>
+</div>
